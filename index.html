@@ -2,59 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wisdom Hand Work</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #f9f9f9;
       margin: 0;
       padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f2f5;
+      overflow-x: hidden;
     }
+
     .top-background {
       background: url('images/ss.jpg') no-repeat center center;
       background-size: cover;
-      padding: 20px;
-      padding-bottom: 60px;
+      padding: 50px 20px;
+      animation: backgroundMove 10s infinite alternate;
     }
+
+    @keyframes backgroundMove {
+      0% { background-position: center top; }
+      100% { background-position: center bottom; }
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
     header img {
-      width: 80px;
+      width: 90px;
       height: auto;
+      animation: logoFloat 4s infinite ease-in-out;
     }
+
+    @keyframes logoFloat {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
     .text-content h1 {
-      margin: 10px 0 0;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      margin: 10px 0 5px;
+      color: #ffffff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      font-size: 36px;
     }
+
     .text-content p {
-      margin: 5px 0 20px;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      margin: 0;
+      color: #ffffff;
+      font-size: 18px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
+
     .gallery {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-bottom: 30px;
       flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
     }
+
     .gallery-item {
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 10px;
-      width: 200px;
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      overflow: hidden;
+      width: 220px;
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+      transition: transform 0.5s;
+      animation: cardFloat 6s infinite ease-in-out;
     }
+
+    @keyframes cardFloat {
+      0% { transform: translateY(0px) rotateX(0deg); }
+      50% { transform: translateY(-10px) rotateX(5deg); }
+      100% { transform: translateY(0px) rotateX(0deg); }
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05) perspective(1000px) rotateY(10deg);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+    }
+
     .gallery-item img {
       width: 100%;
       height: 250px;
       object-fit: cover;
-      border-radius: 8px;
+      border-bottom: 1px solid #ddd;
     }
+
     .gallery-item p {
-      margin-top: 8px;
+      margin: 10px;
       font-weight: bold;
+      color: #333;
     }
   </style>
 </head>
